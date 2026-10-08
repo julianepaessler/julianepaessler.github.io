@@ -1,0 +1,80 @@
+/* Custom CV page styles */
+.cv-entry {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 22px;
+  gap: 20px;
+}
+
+.cv-year {
+  flex: 0 0 130px;
+  color: var(--global-text-color);
+  opacity: 0.55;
+  font-weight: 600;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+
+.cv-content {
+  flex: 1;
+  color: var(--global-text-color);
+  line-height: 1.5;
+
+  p:first-child {
+    margin-top: 0;
+  }
+
+  ul {
+    margin-top: 6px;
+    margin-bottom: 0;
+    padding-left: 20px;
+  }
+
+  li {
+    margin-bottom: 4px;
+  }
+}
+
+// Stack year above content on narrow screens instead of side-by-side
+@media (max-width: 600px) {
+  .cv-entry {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .cv-year {
+    flex: none;
+  }
+}
+
+// Tighten space
+.cv-title {
+  margin-bottom: 2px;
+}
+
+.cv-meta {
+  margin: 0 0 2px 0;
+  font-size: 0.9em;
+  color: var(--global-text-color);
+  opacity: 0.75;
+}
+
+.cv-content ul {
+  margin-top: 2px; // tighter gap between bullets and the text above
+}
+
+.cv-entry .cv-content ul {
+  margin: 2px 0 0 0 !important;
+  padding-left: 20px;
+  line-height: 1.3 !important;
+}
+
+.cv-entry .cv-content li {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+// For tighter spacing of bullet points in lists outside of the cv.yml file
+.tight-list li {
+  margin-bottom: 0 !important;
+}

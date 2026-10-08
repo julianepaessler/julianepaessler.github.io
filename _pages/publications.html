@@ -5,32 +5,140 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
-
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
+<div class="pub-filters">
+  <input type="text" id="pub-search" placeholder="Search publications">
+  <div class="pub-filter-buttons" id="type-filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="inproceedings">Conference</button>
+    <button class="filter-btn" data-filter="article">Journal</button>
+    <button class="filter-btn" data-filter="phdthesis">Thesis</button>
+    <select id="year-select" class="year-select">
+      <option value="all">All years</option>
+    </select>
+  </div>
+</div>
 
+{% bibliography %}
 
+<!-- NOTE: Comment this and uncomment the script below to only filter in title, author, venue and abstract.
+    The version below filters everything that's in papers.bib, including things like "artifact" or "to appear" -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var searchInput = document.getElementById("pub-search");
+  var typeButtons = document.querySelectorAll("#type-filters .filter-btn");
+  var yearSelect = document.getElementById("year-select");
+  var activeType = "all";
+  var activeYear = "all";
 
+  // Build year dropdown options dynamically from whatever years exist
+  var years = [];
+  document.querySelectorAll(".pub-entry").forEach(function (entry) {
+    var y = entry.getAttribute("data-year");
+    if (y && years.indexOf(y) === -1) years.push(y);
+  });
+  years.sort().reverse();
+
+  years.forEach(function (year) {
+    var option = document.createElement("option");
+    option.value = year;
+    option.textContent = year;
+    yearSelect.appendChild(option);
+  });
+
+  function applyFilters() {
+    var searchTerm = searchInput.value.toLowerCase();
+    var entries = document.querySelectorAll(".pub-entry");
+
+    entries.forEach(function (entry) {
+      var entryType = entry.getAttribute("data-type");
+      var entryYear = entry.getAttribute("data-year");
+      var listItem = entry.closest("li");
+
+      var matchesType = activeType === "all" || entryType === activeType;
+      var matchesYear = activeYear === "all" || entryYear === activeYear;
+      var matchesSearch = entry.textContent.toLowerCase().indexOf(searchTerm) !== -1;
+
+      listItem.style.display = (matchesType && matchesYear && matchesSearch) ? "" : "none";
+    });
+
+    document.querySelectorAll("h2.bibliography").forEach(function (heading) {
+      var list = heading.nextElementSibling;
+      if (!list) return;
+      var visibleItems = list.querySelectorAll("li:not([style*='display: none'])");
+      heading.style.display = visibleItems.length > 0 ? "" : "none";
+    });
+  }
+
+  typeButtons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      typeButtons.forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      activeType = btn.getAttribute("data-filter");
+      applyFilters();
+    });
+  });
+
+  yearSelect.addEventListener("change", function () {
+    activeYear = yearSelect.value;
+    applyFilters();
+  });
+
+  searchInput.addEventListener("input", applyFilters);
+});
+</script>
+
+<!-- NOTE: Uncomment this and comment the script below to only filter in title, author, venue and abstract.
+    The version above filters everything that's in papers.bib, including things like "artifact" or "to appear" -->
+<!-- <script>
+document.addEventListener("DOMContentLoaded", function () {
+  var searchInput = document.getElementById("pub-search");
+  var filterButtons = document.querySelectorAll(".filter-btn");
+  var activeType = "all";
+
+  function applyFilters() {
+    var searchTerm = searchInput.value.toLowerCase();
+    var entries = document.querySelectorAll(".pub-entry");
+
+    entries.forEach(function (entry) {
+      var entryType = entry.getAttribute("data-type");
+      var listItem = entry.closest("li");
+      var matchesType = activeType === "all" || entryType === activeType;
+
+      var titleEl = entry.querySelector(".pub-title-line");
+      var authorsEl = entry.querySelector(".pub-authors");
+      var venueEl = entry.querySelector(".pub-venue");
+      var abstractEl = entry.querySelector(".abstract-box");
+
+      var titleText = titleEl ? titleEl.textContent : "";
+      var authorsText = authorsEl ? authorsEl.textContent : "";
+      var venueText = venueEl ? venueEl.textContent : "";
+      var abstractText = abstractEl ? abstractEl.textContent : "";
+
+      var searchableText = (titleText + " " + authorsText + " " + venueText + " " + abstractText).toLowerCase();
+      var matchesSearch = searchableText.indexOf(searchTerm) !== -1;
+
+      listItem.style.display = (matchesType && matchesSearch) ? "" : "none";
+    });
+
+    document.querySelectorAll("h2.bibliography").forEach(function (heading) {
+      var list = heading.nextElementSibling;
+      if (!list) return;
+      var visibleItems = list.querySelectorAll("li:not([style*='display: none'])");
+      heading.style.display = visibleItems.length > 0 ? "" : "none";
+    });
+  }
+
+  filterButtons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      filterButtons.forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      activeType = btn.getAttribute("data-filter");
+      applyFilters();
+    });
+  });
+
+  searchInput.addEventListener("input", applyFilters);
+});
+</script> -->

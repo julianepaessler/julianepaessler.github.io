@@ -1,0 +1,37 @@
+/* Custom News page styles */
+.news-list {
+  margin: 0;
+  padding: 0;
+}
+
+.news-entry {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  gap: 20px;
+}
+
+.news-date {
+  flex: 0 0 100px;
+  color: var(--global-text-color);
+  opacity: 0.55;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.news-content {
+  flex: 1;
+  color: var(--global-text-color);
+}
+
+// Stack date above description on narrow screens
+@media (max-width: 600px) {
+  .news-entry {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .news-date {
+    flex: none;
+  }
+}

@@ -1,0 +1,310 @@
+%% PhD thesis
+@phdthesis{phd_thesis,
+  abstract = {Self-adaptation can be used to enable a system to adapt to internal and external changes, allowing it to be deployed in an uncertain environment. A self-adaptive system (SAS) can be implemented as a two-layered system consisting of a managed subsystem and a managing subsystem. The managed subsystem implements the application logic, while the managing subsystem implements the adaptation logic. The managing subsystem monitors the managed subsystem and the environment, uses this data to determine whether the managed subsystem needs to be adapted, and adapts it if necessary. The aim of an SAS is to perform its mission autonomously, ideally without human supervision. Especially when operating in safety and security-critical domains, it is crucial to ensure the safety and reliability of an SAS.
+
+In this thesis, we show how formal methods can be used to analyse the safety and reliability of SASs. Formal methods are mathematically based techniques and tools for the specification and analysis of hardware and software systems. We focus on formal methods that are able to capture and analyse the two-layered structure of an SAS, including the interaction between the two layers and the influence of the environment that triggers self-adaptation of the SAS. Concretely, we show how rewriting logic and techniques from software product lines (SPLs) can be used to model an SAS and the environment it operates in. We exemplify the former using the tool Maude and the latter with the tool ProFeat. We use simulation in Maude to show that the inclusion of a managing subsystem, which implements self-adaptation, can increase the overall system performance. Family-based probabilistic model checking in ProFeat is utilised to illustrate how quantitative properties of an SAS can be analysed.
+
+We further show how existing formal modelling techniques can be extended or modified to support reuse of SAS models, and show their potential to ease modelling and maintenance of SASs. By introducing template nodes in decision diagrams, common behaviour can be encapsulated and reused which also supports the specification of the two-layered structure of an SAS. Furthermore, we combine the modelling of the structure and the behaviour of SPLs into one compositional model, called behavioural feature model, which allows reuse of behaviour of single features and sets of features.},
+  author = {Juliane Päßler},
+  nva_api = {https://api.nva.unit.no/publication/0199ec7d197a-3b0259c9-97d3-4951-864e-47c91b88e567},
+  school = {University of Oslo},
+  title = {Formal Methods for Self-Adaptive Systems},
+  html = {https://api.nva.unit.no/publication/0199ec7d197a-3b0259c9-97d3-4951-864e-47c91b88e567},
+  year = {2025},
+  pdf = {papers/2025_phd_thesis.pdf}
+}
+
+%% SPLC 2026 (MONOPOLY) TODO: update with real information
+@inproceedings{splc26,
+  author={Murphy, Logan and Carwehl, Marc and Päßler, Juliane and Chechik, Marsha},
+  booktitle={Proceedings of the International Conference on Software and Systems Reuse, Product Lines, and Configuration (VARIABILITY)}, 
+  title={{MONOPOLY: Product Line Analysis via Monotonicity}}, 
+  year={2026},
+  volume={},
+  number={},
+  pages={},
+  html={},
+  toappear  = {true},
+  pdf = {papers/2026_monopoly.pdf},
+  artifact = {https://github.com/monopoly-spl/monopoly},
+  abstract = {Software product lines (SPLs) model families of related products. 
+    Analysis techniques for single products have been \emph{lifted} to SPLs. However, lifted analyses are often specific to the domain of the SPL, and the type of analysis. 
+    In this work, we introduce \monopoly, a general framework for black-box lifting of a wide class of analyses for different SPL domains. 
+    We provide a detailed formalization of SPL domains and their analyses that can be lifted, including a correctness theorem, and a proof thereof. 
+    Through an empirical analysis, we showcase the potential of our framework on two SPLs from the literature with several thousand products and report on a complete analysis of the SPL by analyzing only between 3.6\% and 24\% of all SPL products.}
+  }
+
+%% SCP (Software Model iFM)
+@article{PBDJT25,
+	author = {P{\"{a}}{\ss}ler, Juliane and ter Beek, Maurice H. and Damiani, Ferruccio and Johnsen, Einar Broch and Tapia Tarifa, S. Lizeth},
+	html = {https://doi.org/10.1016/j.scico.2024.103221},
+	journal = {Science of Computer Programming},
+	pages = {103221},
+	title = {{A Configurable Software Model of a Self-Adaptive Robotic System}},
+	volume = {240},
+	year = {2025},
+  pdf = {papers/2025_scp.pdf},
+  artifact = {https://doi.org/10.5281/zenodo.13946884},
+  abstract = {Self-adaptation, meant to increase reliability, is a crucial feature of cyber-physical systems operating in uncertain physical environments. Ensuring safety properties of self-adaptive systems is of utter importance, especially when operating in remote environments where communication with a human operator is limited, like under water or in space. 
+    This paper presents a software model that allows the analysis of one such self-adaptive system, a configurable underwater robot used for pipeline inspection, by means of the probabilistic model checker ProFeat. Furthermore, it shows that the configurable software model is easily extensible to further, possibly more complex use cases and analyses.}
+  }
+
+%% JSS extension for iFM paper
+@article{passlerAnalysingSelfAdaptiveSystems2025,
+  title = {Analysing {{Self-Adaptive Systems}} as {{Software Product Lines}}},
+  author = {P{\"a}{\ss}ler, Juliane and {ter Beek}, Maurice H. and Damiani, Ferruccio and Johnsen, Einar Broch and Tapia Tarifa, S. Lizeth},
+  year = {2025},
+  journal = {Journal of Systems and Software},
+  volume = {222},
+  pages = {112324},
+  issn = {0164-1212},
+  html = {https://doi.org/10.1016/j.jss.2024.112324},
+  pdf = {papers/2025_jss.pdf},
+  artifact ={https://doi.org/10.5281/zenodo.14230735},
+  abstract = {Self-adaptation is a crucial feature of autonomous systems that must
+  cope with uncertainties in, e.g., their environment and their
+  internal state.  Self-adaptive systems (SASs) can be realised as
+  two-layered systems, introducing a separation of concerns between
+  the domain-specific functionalities of the system (the
+  managed subsystem) and the adaptation logic (the
+  {managing} subsystem), i.e., introducing an
+  external feedback loop for managing adaptation in the system. We present an approach to model SASs as
+  dynamic software product lines (SPLs) and leverage existing
+  approaches to SPL-based analysis for the analysis of SASs.  
+  To do so, the
+  functionalities of the SAS are modelled in a feature model,
+  capturing the SAS's variability.  This allows us to model the
+  managed subsystem of the SAS as a family of systems, where each
+  family member corresponds to a valid feature configuration of the
+  SAS.  Thus, the managed subsystem of an SAS is modelled as an SPL
+  model; more precisely, a probabilistic featured transition system.
+  The managing subsystem of an SAS is modelled as a control layer
+  capable of dynamically switching between these valid configurations,
+  depending on both environmental and internal conditions. We
+  demonstrate the approach on a small-scale evaluation of a self-adaptive autonomous underwater
+  vehicle used for pipeline inspection, which we model and analyse
+  with the feature-aware probabilistic model checker ProFeat.  The
+  approach allows us to analyse probabilistic reward and safety
+  properties for the SAS, as well as the correctness of its adaptation
+  logic.}
+}
+
+%% Maude paper
+@inproceedings{PasslerASTCJ22,
+  author       = {Juliane P{\"{a}}{\ss}ler and
+                  Esther Aguado and
+                  Gustavo Rezende Silva and
+                  Silvia Lizeth Tapia Tarifa and
+                  Carlos Hern{\'{a}}ndez Corbato and
+                  Einar Broch Johnsen},
+  editor       = {Tiziana Margaria and
+                  Bernhard Steffen},
+  title        = {A Formal Model of Metacontrol in Maude},
+  booktitle    = {Leveraging Applications of Formal Methods, Verification and Validation.
+                 (ISoLA)},
+  series       = {Lecture Notes in Computer Science},
+  volume       = {13701},
+  pages        = {575--596},
+  publisher    = {Springer},
+  year         = {2022},
+  html          = {https://doi.org/10.1007/978-3-031-19849-6_32},
+  pdf = {papers/2022_isola.pdf},
+  artifact = {https://github.com/remaro-network/Maude_Metacontrol},
+  abstract = {Nowadays smart applications appear in domains spanning from  commodity household applications to advanced
+  underwater robotics. These smart
+  applications require adaptation to dynamic environments, changing
+  requirements and internal system errors.  Metacontrol takes a
+  systems of systems view on autonomous control systems and
+  self-adaptation, by means of an additional layer of control that
+  manipulates and combines the regular controllers.  This paper
+  develops a formal model of a Metacontrol architecture. We formalise
+  this Metacontrol architecture in the context of an autonomous house
+  heating application, enabling different controllers to be
+  dynamically combined in order to meet user requirements to a better
+  extent than the individual controllers in isolation. The formal
+  model is developed in the Maude rewriting system, where we show
+  results comparing different scenarios.}
+}
+
+%% SUAVE
+@inproceedings{suave,
+	author = {Rezende Silva, Gustavo and P{\"a}{\ss}ler, Juliane and Zwanepol, Jeroen and Alberts, Elvin and Tapia Tarifa, S. Lizeth and Gerostathopoulos, Ilias and Johnsen, Einar Broch and Hern{\'a}ndez Corbato, Carlos},
+	booktitle = {Proceedings of the 18th International Symposium on Software Engineering for Adaptive and Self-Managing Systems (SEAMS)},
+	html = {https://doi.org/10.1109/SEAMS59076.2023.00031},
+	pages = {181--187},
+	publisher = {IEEE},
+	title = {{{SUAVE}: An Exemplar for Self-Adaptive Underwater Vehicles}},
+	year = {2023},
+	bdsk-url-1 = {https://doi.org/10.1109/SEAMS59076.2023.00031},
+  pdf = {papers/2023_suave.pdf},
+  artifact = {https://doi.org/10.5281/zenodo.7780860},
+  abstract = {Once deployed in the real world, autonomous underwater vehicles
+  (AUVs) are out of reach for human supervision yet need to take
+  decisions to adapt to unstable and unpredictable environments. To
+  facilitate research on self-adaptive AUVs, this paper presents
+  SUAVE, an exemplar for two-layered system-level adaptation of
+  AUVs, which clearly separates the application and self-adaptation
+  concerns. The exemplar focuses on a mission for underwater pipeline
+  inspection by a single AUV, implemented as a ROS 2-based system. This
+  mission must be completed while simultaneously accounting for
+  uncertainties such as thruster failures and unfavorable
+  environmental conditions.  The paper discusses how SUAVE can be
+  used with different self-adaptation frameworks, illustrated by an
+  experiment using the Metacontrol framework to compare AUV behavior
+  with and without self-adaptation.  The experiment shows that the use
+  of Metacontrol to adapt the AUV during its mission improves its
+  performance when measured by the overall time taken to complete the
+  mission or the length of the inspected pipeline.}
+  }
+
+
+%% iFM23 paper
+@inproceedings{PBDTJ24,
+	author = {P{\"a}{\ss}ler, Juliane and ter Beek, Maurice H. and Damiani, Ferruccio and Tapia Tarifa, S. Lizeth and Johnsen, Einar Broch},
+	booktitle = {Proceedings of the 18th International Conference on integrated Formal Methods (iFM)},
+	html = {https://doi.org/10.1007/978-3-031-47705-8_18},
+	editor = {Herber, Paula and Wijs, Anton},
+	pages = {343--363},
+	publisher = {Springer},
+	series = {LNCS},
+	title = {{Formal Modelling and Analysis of a Self-Adaptive Robotic System}},
+	volume = {14300},
+	year = {2023},
+	bdsk-url-1 = {https://doi.org/10.1007/978-3-031-47705-8_18},
+  artifact = {https://doi.org/10.5281/zenodo.13946884},
+  pdf = {papers/2023_ifm.pdf},
+  abstract = {Self-adaptation is a crucial feature of autonomous systems that must cope 
+  with uncertainties in, e.g., their environment and their internal state. 
+  Self-adaptive systems are often modelled as two-layered systems 
+  with a {managed} subsystem handling the domain concerns and a 
+  {managing} subsystem implementing the adaptation logic. 
+  We consider a case study of a self-adaptive robotic system; more 
+  concretely, an autonomous underwater vehicle (AUV) used for pipeline 
+  inspection. In this paper, we model and analyse it with the feature-aware probabilistic 
+  model checker ProFeat. The functionalities of the AUV are modelled in a 
+  feature model, capturing the AUV's variability. This allows us to model 
+  the managed subsystem of the AUV as a family of systems, where each 
+  family member corresponds to a valid feature configuration of the AUV. 
+  The managing subsystem of the AUV is modelled as a control layer capable 
+  of dynamically switching between such valid feature configurations, 
+  depending both on environmental and internal conditions. We use this model
+  to analyse probabilistic reward and safety properties for the AUV.}
+  }
+
+%% xAI24 paper
+@inproceedings{DubslaffKP24,
+  author       = {Clemens Dubslaff and
+                  Verena Kl{\"{o}}s and
+                  Juliane P{\"{a}}{\ss}ler},
+  editor       = {Luca Longo and
+                  Sebastian Lapuschkin and
+                  Christin Seifert},
+  title        = {Template Decision Diagrams for Meta Control and Explainability},
+  booktitle    = {Explainable Artificial Intelligence (xAI)},
+  series       = {Communications in Computer and Information Science},
+  volume       = {2154},
+  pages        = {219--242},
+  publisher    = {Springer},
+  year         = {2024},
+  html          = {https://doi.org/10.1007/978-3-031-63797-1_12},
+  pdf = {papers/2024_xai.pdf},
+  abstract = {{Decision tree classifiers (DTs)} provide an effective machine-learning model, well-known for its 
+	intuitive interpretability. However, they still miss opportunities well-established in software 
+	engineering that could further improve their explainability: separation of concerns, encapsulation,
+	and reuse of behaviors.	To enable these concepts, we introduce {templates} in 
+	{decision diagrams (DDs)} as an extension of multi-valued DDs.
+	Templates allow to encapsulate and reuse common decision-making patterns.
+	By a case study from the autonomous underwater robotics domain we illustrate the benefits of 
+	template DDs for modeling and explaining {meta controllers},
+	i.e., hierarchical control structures with underspecified entities.
+	Further, we implement a template-generating refactoring method for DTs.
+	Our evaluation on standard controller benchmarks shows that template DDs can improve 
+	explainability of controller DTs by reducing their sizes by more than one order of magnitude.}
+}
+
+%% FAC journal extension for iFM paper
+@article{fac2025,
+author = {P\"{a}\ss{}ler, Juliane and ter Beek, Maurice H. and Damiani, Ferruccio and Dubslaff, Clemens and Johnsen, Einar Broch and Tapia Tarifa, Silvia Lizeth},
+title = {Feature-Oriented Modelling and Analysis of a Self-Adaptive Robotic System},
+year = {2025},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+issn = {0934-5043},
+html = {https://doi.org/10.1145/3709159},
+journal = {Formal Aspects of Computing},
+pdf = {papers/2025_fac.pdf},
+artifact = {https://doi.org/10.5281/zenodo.14228090},
+abstract = {Improved autonomy in robotic systems is needed for innovation in,
+  e.g., the marine sector. Autonomous robots that are let loose in
+  hazardous environments, such as underwater, need to handle uncertainties that
+  stem from both their environment and internal state.  While
+  self-adaptation is crucial to cope with these uncertainties, bad
+  decisions may cause the robot to get lost or even to cause severe
+  environmental damage.  Autonomous, self-adaptive robots that operate
+  in uncontrolled environments full of uncertainties need to be
+  reliable!  Since these uncertainties are hard to replicate in
+  test deployments, we need methods to formally analyse self-adaptive
+  robots operating in uncontrolled environments. 
+  In this paper, we show how feature-oriented techniques can be used
+  to formally model and analyse self-adaptive robotic systems in the
+  presence of such uncertainties. 
+  Self-adaptive systems can be organised as two-layered systems with a
+  {managed} subsystem handling the domain concerns and a
+  {managing} subsystem implementing the adaptation logic.
+  We consider a case study of an autonomous underwater vehicle (AUV)
+  for pipeline inspection, in which 
+  the managed subsystem of the AUV is modelled as a family of systems,
+  where each family member corresponds to a valid 
+  configuration of the AUV which can be seen as an operating mode of the AUV's behaviour.  The managing subsystem of the AUV is
+  modelled as a control layer that is capable of dynamically switching between
+  such valid configurations, depending on both environmental
+  and internal uncertainties. These uncertainties are captured in a
+  probabilistic and highly configurable model. 
+  Our modelling approach allows us to exploit powerful formal methods
+  for feature-oriented systems, which we illustrate by analysing
+  safety properties, energy consumption, and multi-objective
+  properties, as well as performing parameter synthesis to analyse to what extent
+  environmental conditions affect 
+  the AUV.  The case study is realised in the probabilistic
+  feature-oriented modelling language and verification tool ProFeat,
+  and in particular exploits family-based probabilistic and
+  parametric model checking. }
+}
+
+
+%% BFM
+
+%% ERAS25 
+@inproceedings{eras25,
+  author={Murphy, Logan and Carwehl, Marc and Päßler, Juliane and Chechik, Marsha},
+  booktitle={IEEE Engineering Reliable Autonomous Systems (ERAS)}, 
+  title={{Towards Systematic Maintenance of Assurance for Evolving Self-Adaptive Systems}}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1--8},
+  html={https://doi.org/10.1109/ERAS63351.2025.11135664},
+  pdf = {papers/2025_eras.pdf},
+  abstract = {Despite many advances in self-adaptive systems (SAS) research, the community has only recently begun exploring the {evolution} of SASs.
+     {We consider an evolution to be a necessary change of the SAS outside of its self-adaptation capabilities, e.g., to respond to unforeseen changes. } 
+     In this work, we study the {assurance} of evolving SASs.
+    {Dynamic {assurance cases}} (ACs) have been proposed as a means to certify a system's safety and reliability under uncertainty. 
+     However, when the SAS evolves, developers require guidance about which parts of a dynamic AC can be repurposed and which costs may be introduced in re-assuring the evolved SAS. Towards this goal, we propose \process, a framework which provides a structured approach for reusing assurance evidence for evolving SASs. Building on existing techniques for dynamic AC development, compositional assurance, and product line engineering, \process aims to maximize reuse,  minimize the cost, and quantify the effort of assuring evolving SASs. }
+}
+
+
+%% ROSA 
+@article{rosa,
+    AUTHOR={Rezende Silva, Gustavo  and Päßler, Juliane  and Tapia Tarifa, S. Lizeth  and Johnsen, Einar Broch  and Hernández Corbato, Carlos },     
+    TITLE={ROSA: a knowledge-based solution for robot self-adaptation},    
+    JOURNAL={{Frontiers in Robotics and AI}},     
+    VOLUME={Volume 12 - 2025},
+    YEAR={2025},
+    html={https://doi.org/10.3389/frobt.2025.1531743},
+    ISSN={2296-9144},
+    pdf = {papers/2025_rosa.pdf},
+    artifact = {https://github.com/kas-lab/rosa},
+    abstract = {Autonomous robots must operate in diverse environments and handle multiple tasks despite uncertainties. This creates challenges in designing software architectures and task decision-making algorithms, as different contexts may require distinct task logic and architectural configurations. To address this, robotic systems can be designed as self-adaptive systems capable of adapting their task execution and software architecture at runtime based on their context.
+This paper introduces ROSA, a novel knowledge-based framework for RObot Self-Adaptation, which enables task-and-architecture co-adaptation (TACA) in robotic systems. ROSA achieves this by providing a knowledge model that captures all application-specific knowledge required for adaptation and by reasoning over this knowledge at runtime to determine when and how adaptation should occur.
+In addition to a conceptual framework, this work provides an open-source ROS 2-based reference implementation of ROSA and evaluates its feasibility and performance in an underwater robotics application. Experimental results highlight ROSA’s advantages in reusability and development effort for designing self-adaptive robotic systems.}
+}

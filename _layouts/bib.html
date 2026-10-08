@@ -1,0 +1,76 @@
+---
+---
+{% assign name_first = site.myname_first %}
+{% assign name_last = site.myname_last %}
+
+<!-- Added the datea-type to filter for publication type and year -->
+<div class="pub-entry" data-type="{{ entry.type }}" data-year="{{ entry.year }}">
+
+  <div class="pub-title-line">
+    <strong>{{ entry.title }}</strong>
+    {% if entry.type == "article" %}
+      <span class="badge badge-journal">Journal</span>
+    {% elsif entry.type == "inproceedings" %}
+      <span class="badge badge-conference">Conference</span>
+    {% elsif entry.type == "phdthesis" %}
+      <span class="badge badge-thesis">Thesis</span>
+    {% elsif entry.type == "proceedings" %}
+      <span class="badge badge-workshop">Workshop</span>
+    {% else %}
+      <span class="badge badge-other">Other</span>
+    {% endif %}
+    {% if entry.toappear %}
+      <span class="badge badge-toappear">To Appear</span>
+    {% endif %}
+  </div>
+
+<div class="pub-authors">
+    {%- for author in entry.author_array -%}
+      {%- if author.last == name_last and author.first == name_first -%}
+        <span class="my-name">{{ author.first }} {{ author.last }}</span>
+      {%- else -%}
+        {{ author.first }} {{ author.last }}
+      {%- endif -%}
+      {%- unless forloop.last -%}, {% endunless -%}
+    {%- endfor -%}
+  </div>
+
+<div class="pub-venue">
+  {% if entry.type == "phdthesis" %}
+    PhD thesis, {{ entry.school }}, {{ entry.year }}
+  {% elsif entry.booktitle %}
+    {{ entry.booktitle }}, {{ entry.year }}
+  {% elsif entry.journal %}
+    {{ entry.journal }}, {{ entry.year }}
+  {% endif %}
+</div>
+
+  <div class="pub-buttons">
+    {% if entry.abstract %}
+      <button class="btn-abstract" onclick="
+        var el = document.getElementById('abstract-{{ entry.key }}');
+        el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+      ">Abstract</button>
+    {% endif %}
+
+    {% if entry.pdf %}
+      <a class="btn-pdf" href="{{ '/files/' | append: entry.pdf | relative_url }}" target="_blank">Preprint</a>
+    {% endif %}
+
+    {% if entry.html %}
+      <a class="btn-link" href="{{ entry.html }}" target="_blank">Link</a>
+    {% endif %}
+
+    {% if entry.artifact %}
+      <a class="btn-artifact" href="{{ entry.artifact }}" target="_blank">Artifact</a>
+    {% endif %}
+  </div>
+
+  {% if entry.abstract %}
+    <div id="abstract-{{ entry.key }}" class="abstract-box" style="display:none;">
+      {{ entry.abstract }}
+    </div>
+  {% endif %}
+  
+
+</div>

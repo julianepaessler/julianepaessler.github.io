@@ -1,0 +1,32 @@
+experience:
+  - year: "2026 - now"
+    title: "University Assistant (PostDoc), TU Wien, Vienna, Austria"
+    # bullets: 
+    #   - something
+    #   - something more
+  - year: "2021 - 2025"
+    title: "PhD Research Fellow, University of Oslo, Oslo, Norway"
+    # bullets: 
+    #   - something
+  - year: "2019 - 2021"
+    title: "Teaching Assistant, University of Münster, Münster, Germany"
+    # bullets: 
+    #   - something
+
+education:
+  - year: "2021 - 2025"
+    title: "PhD in Computer Science, University of Oslo, Oslo, Norway"
+    thesis: "Formal Methods for Self-Adaptive Systems"
+    supervisor: "Silvia Lizeth Tapia Tarifa, Einar Broch Johnsen, and Carlos Hernández Corbato"
+    bullets:
+      - Part of the Marie Skłodowska-Curie Actions Innovative Training Network REMARO
+  - year: "2018 - 2021"
+    title: "MSc in Mathematics, University of Münster, Münster, Germany"
+    thesis: "Forking Independence in the Free Group"
+    # supervisor: "Katrin Tent"
+    bullets:
+      - Graduated with honours
+  - year: "2015 - 2018"
+    title: "BSc in Mathematics, University of Münster, Münster, Germany"
+    thesis: "The conditions (R_k), (S_k) and Serre's criterion for normality"
+    # supervisor: "Eugen Hellmann"

@@ -1,0 +1,22 @@
+<!-- Render CV entries automatically from cv.yml file -->
+{% for entry in include.entries %}
+<div class="cv-entry">
+  <div class="cv-year">{{ entry.year }}</div>
+  <div class="cv-content">
+    <p class="cv-title">{{ entry.title }}</p>
+    {% if entry.thesis %}
+    <p class="cv-meta">Thesis: {{ entry.thesis }}</p>
+    {% endif %}
+    {% if entry.supervisor %}
+    <p class="cv-meta">Supervisors: {{ entry.supervisor }}</p>
+    {% endif %}
+    {% if entry.bullets and entry.bullets.size > 0 %}
+    <ul>
+      {% for b in entry.bullets %}
+      <li>{{ b }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</div>
+{% endfor %}

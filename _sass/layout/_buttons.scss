@@ -153,3 +153,8 @@
     font-size: $type-size-7;
   }
 }
+
+.gray-heading {
+  color: var(--global-text-color) !important;
+  opacity: 0.55;
+}

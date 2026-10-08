@@ -1,3 +1,24 @@
 <script type="module" src="{{ base_path }}/assets/js/main.min.js"></script>
 
+<!--  Open external links in new tab -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var siteHost = window.location.hostname;
+  var contentLinks = document.querySelectorAll(".page__content a, .archive__item-excerpt a");
+
+  contentLinks.forEach(function (link) {
+    var href = link.getAttribute("href");
+    if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:")) {
+      return; // skip anchors, mailto, tel links
+    }
+
+    // link.hostname resolves relative URLs against the current page automatically
+    if (link.hostname && link.hostname !== siteHost) {
+      link.setAttribute("target", "_blank");
+      link.setAttribute("rel", "noopener noreferrer");
+    }
+  });
+});
+</script>
+
 {% include analytics.html %}
