@@ -23,7 +23,7 @@ repository               : "julianepaessler/julianepaessler.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "Juliane_Paessler.jpg"
+  avatar           : "juliane_paessler.jpg"
   name             : "Juliane Päßler"
   pronouns         : "she/her"  
   bio              : "PostDoc @ TU Wien"
